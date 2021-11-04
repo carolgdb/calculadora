@@ -24,14 +24,13 @@
     <button onclick="calcular('-')">-</button>
     <button onclick="calcular('*')">*</button>
     <button onclick="calcular('/')">/</button>
-
+    
     <div id="output"></div>
 
     <script>
         /*peço ao usuário que digite um numero*/
         var n1=prompt('Digite um numero');
         n1=parseFloat(n1);
-
         escreve();
 
         function escreve(){
@@ -39,18 +38,29 @@
             output.innerHTML=n1;
         }
 
-        
-        function somar(){
-            var n=null; 
+        function calcular(simbolo){
             /*peço ao usuario que digite outro numero*/
-            n=prompt('digite outro numero');
+            var n=prompt('digite outro numero');
             n=parseFloat(n);
-            /*n1=n1+n;*/
-            n1+=n;
+            
+            switch(simbolo){
+                case'+':
+                    n1+=n;
+                    break;
+                case'-':
+                    n1-=n;
+                    break;
+                case'*':
+                 n1*=n;
+                    break;
+                case'/':
+                    n1/=n;
+                    break;
+                
+            }
             escreve();
         }
-
-            
+           
     </script>
 </body>
 </html>
