@@ -11,15 +11,24 @@
 </head>
 <body>
     <h1>Lógica de programação com javascript</h1>
+    <!-- primeiro código
 
     <button onclick="somar()">+</button>
     <button onclick="subtrair()">-</button>
     <button onclick="multiplicar()">*</button>
     <button onclick="dividir()">/</button>
+    -->
+
+    <!--melhorando o código-->
+    <button onclick="calcular(+)">+</button>
+    <button onclick="calcular(-)">-</button>
+    <button onclick="calcular(*)">*</button>
+    <button onclick="calcular(/)">/</button>
 
     <div id="output"></div>
 
     <script>
+        /*peço ao usuário que digite um numero*/
         var n1=prompt('Digite um numero');
         n1=parseFloat(n1);
 
@@ -32,6 +41,7 @@
 
         function somar(){
             var n=null; 
+            /*peço ao usuario que digite outro numero*/
             n=prompt('digite outro numero');
             n=parseFloat(n);
             /*n1=n1+n;*/
