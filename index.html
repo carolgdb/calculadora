@@ -19,11 +19,11 @@
     <button onclick="dividir()">/</button>
     -->
 
-    <!--melhorando o código-->
-    <button onclick="calcular('+')">+</button>
-    <button onclick="calcular('-')">-</button>
-    <button onclick="calcular('*')">*</button>
-    <button onclick="calcular('/')">/</button>
+    <!--aprendendo try...catch-->
+    <button onclick="iniciarCalculo('+')">+</button>
+    <button onclick="iniciarCalculo('-')">-</button>
+    <button onclick="iniciarCalculo('*')">*</button>
+    <button onclick="iniciarCalculo('/')">/</button>
     
     <div id="output"></div>
 
@@ -31,34 +31,58 @@
         /*peço ao usuário que digite um numero*/
         var n1=prompt('Digite um numero');
         n1=parseFloat(n1);
-        escreve();
+        escreve(n1);
+
+        function iniciarCalculo(simbolo){
+            var n2=document.querySelector('#output').textContent;
+            n2=parseFloat(n2);
+
+            var n1=prompt('digite outro número');
+            n1=parseFloat(n1);
+
+            try{
+                var msg=calcular(simbolo,n1,n2);
+
+            }catch(e){
+                alert(e);
+                return;
+            }
+
+            escreve(msg);
+        }
 
         function escreve(){
             var output=document.querySelector('#output');
             output.innerHTML=n1;
         }
 
-        function calcular(simbolo){
-            /*peço ao usuario que digite outro numero*/
-            var n=prompt('digite outro numero');
-            n=parseFloat(n);
-            
+        function calcular(simbolo,n1,n2){
+            console.log(simbolo)
+            if(simbolo !=='+' && simbolo !=='-' && simbolo!=='*'&&simbolo!=='/'){
+                throw new Error('Digite um símbolo válido');
+            }
+
+            if(isNaN(n1) ||isNaN(n2)){
+                alert('Por favor digite somente números');
+                return 0;
+            }
+                       
             switch(simbolo){
                 case'+':
-                    n1+=n;
+                    numeroCalculado=n1+n2;
                     break;
                 case'-':
-                    n1-=n;
+                    numeroCalculado=n1-n2;
                     break;
                 case'*':
-                 n1*=n;
+                    numeroCalculado=n1*n2;
                     break;
                 case'/':
-                    n1/=n;
+                    numeroCalculado=n1/n2;
                     break;
                 
             }
-            escreve();
+            return numeroCalculado;
         }
            
     </script>
