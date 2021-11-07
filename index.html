@@ -19,7 +19,7 @@
     <button onclick="dividir()">/</button>
     -->
 
-    <!--aprendendo try...catch-->
+    <!--chamando a funçao iniciarCalculo-->
     <button onclick="iniciarCalculo('+')">+</button>
     <button onclick="iniciarCalculo('-')">-</button>
     <button onclick="iniciarCalculo('*')">*</button>
@@ -29,17 +29,15 @@
 
     <script>
         /*peço ao usuário que digite um numero*/
-        var n1=prompt('Digite um numero');
-        n1=parseFloat(n1);
-        escreve(n1);
+        var n2=prompt('Digite um numero');
+        n2=parseFloat(n2);
+        escreve(n2);
 
         function iniciarCalculo(simbolo){
-            var n2=document.querySelector('#output').textContent;
-            n2=parseFloat(n2);
-
             var n1=prompt('digite outro número');
-            n1=parseFloat(n1);
+            n1=parseFloat(n1); /*convertendo string em numero*/
 
+            /*aprendendo try...catch*/
             try{
                 var msg=calcular(simbolo,n1,n2);
 
@@ -49,11 +47,12 @@
             }
 
             escreve(msg);
+            n2=msg;
         }
 
-        function escreve(){
+        function escreve(n3){
             var output=document.querySelector('#output');
-            output.innerHTML=n1;
+            output.innerHTML=n3;
         }
 
         function calcular(simbolo,n1,n2){
@@ -72,13 +71,13 @@
                     numeroCalculado=n1+n2;
                     break;
                 case'-':
-                    numeroCalculado=n1-n2;
+                    numeroCalculado=n2-n1;
                     break;
                 case'*':
                     numeroCalculado=n1*n2;
                     break;
                 case'/':
-                    numeroCalculado=n1/n2;
+                    numeroCalculado=n2/n1;
                     break;
                 
             }
